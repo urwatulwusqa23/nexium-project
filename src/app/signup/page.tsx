@@ -35,10 +35,10 @@ export default function SignupPage() {
 
   return (
     <div className="flex h-screen">
-      <div className="w-1/2 bg-cover bg-center" style={{ backgroundImage: "url('/Images/img.jpg')" }}>
+      <div className="w-1/2 bg-cover bg-center" style={{ backgroundImage: "url('/Images/ik.jpg')" }}>
       </div>
 
-      <div className="w-1/2 bg-[#cda5dc] flex flex-col justify-center items-center p-10">
+      <div className="w-1/2 bg-[#d194b5] flex flex-col justify-center items-center p-10">
         <h1 className="text-4xl font-[cursive] text-black mb-2">Welcome to</h1>
         <h2 className="text-5xl font-[cursive] italic text-black mb-10">Moodify</h2>
 

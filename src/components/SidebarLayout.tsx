@@ -14,7 +14,7 @@ const SidebarLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="flex min-h-screen overflow-hidden">
       {/* Sidebar */}
-      <div className="w-64 bg-[#3f3949] flex flex-col justify-between">
+      <div className="w-64 bg-[#eed1ee] flex flex-col justify-between">
         <div className="pt-6">
           <h1 className="text-xl font-bold text-black text-center mb-10">🧘‍♂️ Moodify</h1>
           <nav className="flex flex-col gap-3 px-2">
@@ -46,7 +46,7 @@ const SidebarLayout = ({ children }: { children: ReactNode }) => {
               href="/Journal"
               className="block w-full px-4 py-3 rounded-md border border-gray-300 bg-white text-black font-medium hover:bg-purple-100 hover:text-purple-700 transition"
             >
-              Journal
+             📖  Journal
             </Link>
           </nav>
         </div>

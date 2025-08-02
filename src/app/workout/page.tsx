@@ -7,28 +7,28 @@ const workoutVideos = [
   { id: 'VaoV1PrYft4', title: '10-Min Full Body Stretch' },
   { id: 'ml6cT4AZdqI', title: 'Beginner Cardio at Home' },
   { id: 'UoC_O3HzsH0', title: 'No Equipment HIIT Workout' },
-  { id: 'eQNZwW4aB0E', title: '20-Min Morning Yoga' },
+  { id: 's-1vMbAgYWU', title: '20-Min Morning Yoga' },
 ];
 
 const guides = [
   {
     title: 'Full-Body Home Plan',
-    link: 'https://www.example.com/fullbody',
+    link: 'https://www.healthline.com/health/fitness-exercise/at-home-workouts',
     image: '/fullbody.jpg',
   },
   {
     title: 'Posture Correction',
-    link: 'https://www.example.com/posture',
+    link: 'https://my.clevelandclinic.org/health/articles/posture',
     image: '/posture.jpg',
   },
   {
     title: 'Pre-Workout Nutrition',
-    link: 'https://www.example.com/nutrition',
+    link: 'https://www.healthline.com/nutrition/eat-before-workout',
     image: '/nutrition.jpg',
   },
   {
     title: 'Stretching 101',
-    link: 'https://www.example.com/stretching',
+    link: 'https://www.health.harvard.edu/staying-healthy/the-importance-of-stretching',
     image: '/stretch.jpg',
   },
 ];
@@ -40,10 +40,9 @@ export default function WorkoutPage() {
     <SidebarLayout>
     <div
       className="min-h-screen bg-cover bg-center p-4 md:p-10"
-      style={{ backgroundImage: `url('/images/workout-bg.jpg')` }}
+      style={{ backgroundImage: `url('/ww.jpg')` }}
     >
       {/* Overlay */}
-      <div className="bg-white/80 p-4 md:p-8 rounded-3xl backdrop-blur-md shadow-lg">
         <h1 className="text-2xl md:text-3xl font-bold mb-6 text-black">Workout Zone</h1>
 
         {/* Workout Categories */}
@@ -126,7 +125,7 @@ export default function WorkoutPage() {
           </div>
         </div>
       </div>
-    </div>
+  
     </SidebarLayout>
   );
 }

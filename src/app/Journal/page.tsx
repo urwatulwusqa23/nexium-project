@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import JournalForm from '@/components/journalForm'
 import JournalList from '@/components/journalList'
-
+import SidebarLayout from "@/components/SidebarLayout";
 export default function JournalPage() {
   const [activeEntry, setActiveEntry] = useState<JournalEntry | null>(null);
   const [refreshKey, setRefreshKey] = useState(0);
@@ -20,6 +20,7 @@ export default function JournalPage() {
   };
 
   return (
+    <SidebarLayout>
     <div className="h-screen flex font-sans bg-pastel-100 text-gray-800">
       {/* Sidebar */}
       <div className="w-1/4 bg-pink-100 text-purple-800 p-4 flex flex-col border-r border-purple-200">
@@ -85,6 +86,7 @@ export default function JournalPage() {
         )}
       </div>
     </div>
+    </SidebarLayout>
   );
 }
 

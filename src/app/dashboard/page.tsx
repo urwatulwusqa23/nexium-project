@@ -28,27 +28,27 @@ const videos = [
 const guides = [
   {
     title: "Deep Breathing Guide",
-    link: "https://www.example.com/breathing-guide",
+    link: "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/",
     image: "/breathing.jpg",
   },
   {
     title: "Sleep Hygiene Tips",
-    link: "https://www.example.com/sleep-guide",
+    link: "https://www.sleepfoundation.org/sleep-hygiene",
     image: "/sleep.jpg",
   },
   {
     title: "Mindfulness for Beginners",
-    link: "https://www.example.com/mindfulness",
+    link: "https://www.mayoclinic.org/healthy-lifestyle/consumer-health/in-depth/mindfulness-exercises/art-20046356",
     image: "/mindfulness.jpg",
   },
   {
     title: "Overcoming Anxiety",
-    link: "https://www.example.com/anxiety-help",
+    link: "https://believehim.org/how-to-come-out-of-anxieties-worries-and-the-fear/?gad_source=1&gad_campaignid=16827367332&gbraid=0AAAAAC1H534lBID0g-EA25SMsLC_cefpw&gclid=CjwKCAjw7rbEBhB5EiwA1V49nX5nccWtmwS2KwmFUVYd-EH8viMnHElNh23c0zCJH9-oe7FZ1CpdmxoCweQQAvD_BwE",
     image: "/anxiety.jpg",
   },
   {
     title: "Overcoming Stress",
-    link: "https://www.example.com/anxiety-help",
+    link: "https://www.medicalnewstoday.com/articles/145855#types",
     image: "/stress.jpg",
   },
 ];
@@ -199,7 +199,7 @@ export default function Dashboard() {
 
       {/* Videos */}
       <div className="bg-white p-4 rounded-xl mb-6">
-        <h2 className="text-lg font-semibold mb-2">
+        <h2 className="text-lg font-semibold mb-2 text-black">
           Recommended Videos for You
         </h2>
         <div className="flex flex-wrap gap-4">
@@ -224,7 +224,7 @@ export default function Dashboard() {
 
       {selectedVideo && (
         <div className="mb-6">
-          <h3 className="text-lg font-semibold mb-2">Now Playing</h3>
+          <h3 className="text-lg font-semibold mb-2 text-black">Now Playing</h3>
           <iframe
             className="rounded-xl w-full h-64"
             src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
