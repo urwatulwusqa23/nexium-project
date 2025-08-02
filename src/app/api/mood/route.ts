@@ -1,5 +1,3 @@
-// src/app/api/mood/route.ts
-
 import { NextResponse } from 'next/server'
 import { MongoClient } from 'mongodb'
 
@@ -8,7 +6,6 @@ const dbName = 'mental_health'
 
 if (!uri) throw new Error('Missing MONGODB_URI in env')
 
-// Cache the client across hot reloads in development
 let cachedClient: MongoClient | null = null
 
 async function connectToMongo() {
@@ -25,16 +22,18 @@ export async function POST(req: Request) {
     const { user_id, mood, notes } = body
 
     if (!user_id || !mood) {
-      return NextResponse.json({ error: 'user_id and mood are required' }, { status: 400 })
+      return NextResponse.json(
+        { error: 'user_id and mood are required' },
+        { status: 400 }
+      )
     }
 
     const client = await connectToMongo()
-    
     const db = client.db(dbName)
     const moods = db.collection('moods')
 
-    // Optional: Send to n8n for AI summary
     let summary: string | null = null
+
     if (process.env.N8N_WEBHOOK_URL) {
       try {
         const aiRes = await fetch(process.env.N8N_WEBHOOK_URL, {
@@ -43,7 +42,7 @@ export async function POST(req: Request) {
           body: JSON.stringify({ mood, note: notes || '' })
         })
         const aiData = await aiRes.json()
-        summary = aiData.summary || null
+        summary = aiData?.summary || null
       } catch (e) {
         console.warn('AI summary failed:', e)
       }

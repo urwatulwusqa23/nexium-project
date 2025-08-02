@@ -1,71 +1,66 @@
-/* SleepPage.css */
-
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f7f9fc; /* Light pastel background */
-  color: #333; /* Dark text for contrast */
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #eef2f3;
+  color: #000; /* Text is now black */
+}
+
+.page-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #dce3ed;
+  padding: 30px 20px;
+  border-right: 2px solid #b0bec5;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #000;
+}
+
+.sidebar li:hover {
+  color: #1a237e;
+  text-decoration: underline;
 }
 
 .sleep-page {
-  padding: 20px;
-  max-width: 800px;
-  margin: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff; /* White background for the card */
+  flex: 1;
+  padding: 30px 40px;
+  background-color: #f5f8fa;
 }
 
 h1 {
-  text-align: center;
-  color: #5a5a5a; /* Darker text for headings */
+  margin-top: 0;
 }
 
 .sleep-tip-card {
-  border: 1px solid #e0e0e0; /* Light border */
-  border-radius: 8px;
-  margin: 15px 0;
+  background-color: white;
   padding: 20px;
-  background-color: #f0f4f8; /* Light pastel background for cards */
-  transition: background-color 0.3s;
-}
-
-.sleep-tip-card:hover {
-  background-color: #e0f7fa; /* Slightly darker on hover */
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .tip-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.play-button {
-  background-color: #ffccbc; /* Light pastel orange */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 10px 15px;
-  font-size: 16px;
-  transition: background-color 0.3s;
-}
-
-.play-button:hover {
-  background-color: #ffab91; /* Darker pastel orange on hover */
-}
-
-.audio-player {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #e1f5fe; /* Light pastel blue */
-  border-radius: 5px;
-}
-
-.tip-content {
-  margin-top: 10px;
-}
-
-h3 {
-  color: #5a5a5a; /* Darker text for subheadings */
+  gap: 10px;
 }
 
 ul, ol {
@@ -73,5 +68,81 @@ ul, ol {
 }
 
 li {
-  margin: 5px 0;
+  margin: 6px 0;
+}
+
+.play-button, .start-button {
+  background-color: #c5e1a5;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.play-button:hover, .start-button:hover {
+  background-color: #aed581;
+}
+
+.audio-player {
+  margin-top: 10px;
+  background: #e0f7fa;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 400px;
+}
+.hygiene-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.hygiene-item {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #ccc;
+}
+
+.tip-toggle {
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.tip-toggle:hover {
+  background-color: #f0f0f0;
+}
+
+.tip-image img {
+   max-width: 100px;
+  height: auto;
+  border-radius: 4px;
 }

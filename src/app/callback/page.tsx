@@ -11,7 +11,6 @@ export default function CallbackPage() {
     const checkSession = async () => {
       const {
         data: { session },
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         error,
       } = await supabase.auth.getSession()
 
@@ -26,9 +25,20 @@ export default function CallbackPage() {
   }, [router])
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>Logging you in...</h2>
-      <p>If you&apos;re not redirected in a few seconds, please check your email again.</p>
+    <div className="flex h-screen">
+      {/* Left image panel */}
+      <div
+        className="w-1/2 bg-cover bg-center"
+        style={{ backgroundImage: "url('/Images/img.jpg')" }}
+      />
+
+      {/* Right message panel */}
+      <div className="w-1/2 bg-[#c7d798] flex flex-col justify-center items-center p-10 text-center">
+        <h2 className="text-4xl italic mb-4">Logging you in...</h2>
+        <p className="text-lg text-black italic">
+          If you&apos;re not redirected in a few seconds,<br /> please check your email again.
+        </p>
+      </div>
     </div>
   )
 }

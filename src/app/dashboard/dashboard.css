@@ -1,0 +1,8 @@
+.dashboard-wrapper {
+  background-image: url('/bg.png'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(2px);
+  background-color: rgba(255, 255, 255, 0.8); /* Matte overlay */
+}

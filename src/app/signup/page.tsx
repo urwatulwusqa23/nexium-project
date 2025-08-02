@@ -16,12 +16,11 @@ export default function SignupPage() {
     setLoading(true)
     setMessage('')
 
-    // Save metadata (e.g., name) and send magic link
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: 'http://localhost:3000/callback',
-        data: { name }, // passed as user_metadata
+        emailRedirectTo: `${window.location.origin}/callback`,
+        data: { name },
       }
     })
 
@@ -35,28 +34,48 @@ export default function SignupPage() {
   }
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>Signup to Moodifyy</h1>
-      <form onSubmit={handleSignup}>
-        <input
-          type="text"
-          placeholder="Your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        /><br />
-        <input
-          type="email"
-          placeholder="Your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        /><br />
-        <button type="submit" disabled={loading}>
-          {loading ? 'Sending...' : 'Send Magic Link'}
-        </button>
-      </form>
-      <p>{message}</p>
+    <div className="flex h-screen">
+      <div className="w-1/2 bg-cover bg-center" style={{ backgroundImage: "url('/Images/img.jpg')" }}>
+      </div>
+
+      <div className="w-1/2 bg-[#cda5dc] flex flex-col justify-center items-center p-10">
+        <h1 className="text-4xl font-[cursive] text-black mb-2">Welcome to</h1>
+        <h2 className="text-5xl font-[cursive] italic text-black mb-10">Moodify</h2>
+
+        <form onSubmit={handleSignup} className="w-full max-w-sm space-y-6">
+          <div>
+            <label className="block text-black italic mb-1">Name:</label>
+            <input
+              type="text"
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full p-3 rounded bg-gray-100 border-none outline-none text-black"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-black italic mb-1">Email:</label>
+            <input
+              type="email"
+              placeholder="Your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-3 rounded bg-gray-100 border-none outline-none  text-black"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-[#420558] text-white font-bold py-3 rounded hover:bg-[#631c7d] transition"
+          >
+            {loading ? 'Sending...' : 'Get Magic Link'}
+          </button>
+        </form>
+
+        {message && <p className="mt-4 text-sm text-center text-black">{message}</p>}
+      </div>
     </div>
   )
 }

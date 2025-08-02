@@ -18,39 +18,39 @@ interface JournalEntry {
 }
 
 export default function JournalList({ onEntryClick, activeEntryId }: JournalListProps) {
-  const [entries, setEntries] = useState<JournalEntry[]>([])
-  const [loading, setLoading] = useState(true)
+  const [entries, setEntries] = useState<JournalEntry[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchEntries = async () => {
       try {
-        const res = await fetch('/api/journals')
-        if (!res.ok) throw new Error('Failed to fetch entries')
-        const data = await res.json()
-        setEntries(data)
+        const res = await fetch('/api/journals');
+        if (!res.ok) throw new Error('Failed to fetch entries');
+        const data = await res.json();
+        setEntries(data);
       } catch (error) {
-        console.error('Error fetching entries:', error)
+        console.error('Error fetching entries:', error);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchEntries()
-  }, [])
+    fetchEntries();
+  }, []);
 
-  if (loading) return <div className="text-center py-4 text-amber-700">Loading entries...</div>
+  if (loading) return <div className="text-center py-4 text-amber-700">Loading entries...</div>;
 
   return (
     <div className="space-y-4">
       {entries.map((entry) => {
-        const preview = entry.content.split('\n')[0].substring(0, 100)
-        const date = new Date(entry.createdAt)
+        const preview = entry.content.split('\n')[0].substring(0, 100);
+        const date = new Date(entry.createdAt);
         
         return (
           <div
             key={entry._id}
             onClick={() => onEntryClick(entry)}
-            className={`p-4 rounded-lg cursor-pointer transition-colors ${
+            className={`p-4 rounded-lg cursor-pointer transition-colors shadow-lg ${
               activeEntryId === entry._id 
                 ? 'bg-amber-100 border-l-4 border-amber-500' 
                 : 'bg-white hover:bg-amber-50'
@@ -85,8 +85,8 @@ export default function JournalList({ onEntryClick, activeEntryId }: JournalList
               </div>
             </div>
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }
