@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+// app/layout.tsx
+import { Inter, Playfair_Display } from 'next/font/google'
+
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter'
+})
+
+const playfair = Playfair_Display({ 
+  subsets: ['latin'],
+  variable: '--font-playfair'
+})
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,16 +32,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <body className="font-sans">
         {children}
       </body>
     </html>
-  );
+  )
 }

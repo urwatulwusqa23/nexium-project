@@ -1,0 +1,77 @@
+/* SleepPage.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f9fc; /* Light pastel background */
+  color: #333; /* Dark text for contrast */
+}
+
+.sleep-page {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* White background for the card */
+}
+
+h1 {
+  text-align: center;
+  color: #5a5a5a; /* Darker text for headings */
+}
+
+.sleep-tip-card {
+  border: 1px solid #e0e0e0; /* Light border */
+  border-radius: 8px;
+  margin: 15px 0;
+  padding: 20px;
+  background-color: #f0f4f8; /* Light pastel background for cards */
+  transition: background-color 0.3s;
+}
+
+.sleep-tip-card:hover {
+  background-color: #e0f7fa; /* Slightly darker on hover */
+}
+
+.tip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.play-button {
+  background-color: #ffccbc; /* Light pastel orange */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 15px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.play-button:hover {
+  background-color: #ffab91; /* Darker pastel orange on hover */
+}
+
+.audio-player {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #e1f5fe; /* Light pastel blue */
+  border-radius: 5px;
+}
+
+.tip-content {
+  margin-top: 10px;
+}
+
+h3 {
+  color: #5a5a5a; /* Darker text for subheadings */
+}
+
+ul, ol {
+  padding-left: 20px;
+}
+
+li {
+  margin: 5px 0;
+}

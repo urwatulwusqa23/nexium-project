@@ -1,16 +1,31 @@
-// lib/mongodb.ts
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI!
+const MONGODB_URI = process.env.MONGODB_URI!;
 
-if (!MONGODB_URI) throw new Error('Please add MONGODB_URI to .env.local')
+if (!MONGODB_URI) {
+  throw new Error('Please define the MONGODB_URI environment variable in .env.local');
+}
 
-// eslint-disable-next-line prefer-const, @typescript-eslint/no-explicit-any
-let cached = (global as any).mongoose || { conn: null }
+// Define a global type to cache the connection
+declare global {
+  // eslint-disable-next-line no-var
+  var mongooseConn: typeof mongoose | null;
+}
+
+// Assign default if not already defined (only in development)
+global.mongooseConn ||= null;
 
 export async function connectToDatabase() {
-  if (cached.conn) return cached.conn
+  if (global.mongooseConn) return global.mongooseConn;
 
-  cached.conn = await mongoose.connect(MONGODB_URI)
-  return cached.conn
+  try {
+    const conn = await mongoose.connect(MONGODB_URI, {
+      dbName: 'mental_health', // optional: use your db name
+    });
+    global.mongooseConn = conn;
+    return conn;
+  } catch (error) {
+    console.error('MongoDB connection error:', error);
+    throw error;
+  }
 }
